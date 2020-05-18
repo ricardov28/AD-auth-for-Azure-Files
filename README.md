@@ -1,11 +1,17 @@
 ## This PowerShell script will do the following:
 
 # Perform a quick pre-req check
+
 # Domain-Join your Azure storage account, creating a computer object in your on-prem AD. Make sure you have permissions to write in on-prem AD.
+
 # Give you Windows NTFS full permissions at the file share level. Will also create an Azure SMB rol with elevated permissions for this user at Azure file share level.
+
 # Mount the Azure file share authenticating with your credentials.
+
 # After it mounts, feel free to start managing Windows NTFS permissions to the mounted file share.
+
 # More info: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-active-directory-enable
+
 # By Ricardo Vazquez
 
 
