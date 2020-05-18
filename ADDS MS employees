@@ -55,9 +55,7 @@ $scope = '/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/provi
 
 New-AzRoleAssignment -SignInName $youremailc -RoleDefinitionName $FileShareContributorRole.Name -Scope /subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Storage/storageAccounts/$StorageAccountName/fileServices/default/fileshares/$sharename
 
-
 net use $driveletter \\$StorageAccountName.file.core.windows.net\$sharename /user:"Azure\$StorageAccountName" $storageaccountkey
-
 
 ICACLS $driveletter\ /grant ($youremaill + ':(OI)(CI)F') /T
 
