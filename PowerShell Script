@@ -1,6 +1,5 @@
 ## This PowerShell script will do the following:
  
-
 # Domain-Join your Azure storage account, creating a computer object in your on-prem AD. Make sure you have permissions to write in on-prem AD.
 # Give you Windows NTFS full permissions at the file share level. Will also create an Azure SMB rol with elevated permissions for this user at Azure file share level.
 # Mount the Azure file share authenticating with your credentials.
