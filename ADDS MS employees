@@ -40,7 +40,7 @@ Unblock-File .\CopyToPSPath.ps1
 
 Import-Module -Name AzFilesHybrid
 
-#Connect-AzAccount
+Connect-AzAccount
 
 Select-AzSubscription -SubscriptionId $SubscriptionId 
 
