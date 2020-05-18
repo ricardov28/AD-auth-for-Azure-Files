@@ -18,7 +18,7 @@ $ResourceGroupName = '<resource-group-name-here>'
 $StorageAccountName = '<storage-account-name-here>'
 ## Azure file share name already existent
 $sharename = '<file-share-name-here>'
-## On-Prem AD OU already existent. Example#1: FOR OU CALLED CORP123 IN MICROSOFT.COM DOMAIN ->  OU=CORP123,DC=MICROSOFT,DC=COM     Example#2: MAIN OU USA, NESTED OU1 TEXAS, NESTED OU 2 DALLAS -> OU=DALLAS,OU=TEXAS,OU=USA,DC=YOURDOMAIN,DC=GOV    NEED HELP GETTING OU PATH?   Get-ADOrganizationalUnit -Filter 'Name -like "*"'
+## On-Prem AD OU already existent. Example#1: FOR OU CALLED CORP123 IN MICROSOFT.COM DOMAIN ->  OU=CORP123,DC=MICROSOFT,DC=COM     Example#2: MAIN OU USA, NESTED OU1 TEXAS, NESTED OU 2 DALLAS IN AMERICA.GOV -> OU=DALLAS,OU=TEXAS,OU=USA,DC=AMERICA,DC=GOV    NEED HELP GETTING OU PATH?   Get-ADOrganizationalUnit -Filter 'Name -like "*"'
 $OUpath = '<OU-path>'
 # Your user will get full permissions in Windows NTFS and Azure SMB
 $youremaill = 'user@domain.com'
