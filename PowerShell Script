@@ -5,6 +5,7 @@
 # Give you Windows NTFS full permissions at the file share level. Will also create an Azure SMB rol with elevated permissions for this user at Azure file share level.
 # Mount the Azure file share authenticating with your credentials.
 # After it mounts, feel free to start managing Windows NTFS permissions to the mounted file share.
+# This software is provided "as-is", no warranties implied. 
 # More info: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-active-directory-enable
 # By Ricardo Vazquez
 
