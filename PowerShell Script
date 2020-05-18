@@ -46,7 +46,7 @@ Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -Name $StorageAccountName `
         -DomainAccountType "ComputerAccount" `
-        -OrganizationalUnitDistinguishedName "$OUname"
+        -OrganizationalUnitName "$OUname"
 
 $FileShareContributorRole = Get-AzRoleDefinition "Storage File Data SMB Share Elevated Contributor" 
 
