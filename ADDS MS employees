@@ -1,6 +1,5 @@
 ## This PowerShell script will do the following:
 
-# Perform a quick pre-req check ?????????????????
 # Domain-Join your Azure storage account, creating a computer object in your on-prem AD. Make sure you have permissions to write in on-prem AD.
 # Give you Windows NTFS full permissions at the file share level. Will also create an Azure SMB rol with elevated permissions for this user at Azure file share level.
 # Mount the Azure file share authenticating with your credentials.
@@ -12,24 +11,24 @@
 
 
 ## Sub Id
-$SubscriptionId = '11138938-8adb-4946-b04c-543d7a45068c'
+$SubscriptionId = '<your-subscription-id-here>'
 ## Resource group where storage account is
-$ResourceGroupName = 'rg3'
+$ResourceGroupName = '<resource-group-name-here>'
 ## Storage account name already existent
-$StorageAccountName = 'ricotemp5'
+$StorageAccountName = '<storage-account-name-here>'
 ## Azure file share name already existent
-$sharename = 'azureshare'
-## On-Prem AD OU already existent. Example#1: OU=STORAGE, Example#2: OU=USA,DC=TEXAS,DC=DALLAS
-$OUpath = 'OU'
+$sharename = '<file-share-name-here>'
+## On-Prem AD OU already existent.
+$OUname = '<OU-name>'
 # Your user will get full permissions in Windows NTFS and Azure SMB
-$youremaill = 'localadmin1@rico.com'
-$youremailc = 'localuser1@ricardov28hotmail.onmicrosoft.com'
+$youremaill = 'user@domain.com'
+$youremailc = 'user@domain.onmicrosoft.com'
 # Drive letter to mount share. Make sure is not in use. Example P:, Z:, etc
-$driveletter = 'F:'
+$driveletter = '<desired-drive-letter>'
 # Azure storage access key. Azure portal > storage account > Settings > Access Key > Key 1 or Key 2
-$storageaccountkey = 'iq9I2Wfbt/EI8jPnvGvertY1XyJQar1cJHcA9ig4cgmnXzCZ3/Ik0x1FT+O0nf4ZycwRcwB/y5lCGv6QI+3Z1A=='
+$storageaccountkey = '<storage-access-key>'
 # Path where you downloaded AzFilesHybridPath PowerShell Module. Example C:\myscripts  Download  from https://github.com/Azure-Samples/azure-files-samples/releases
-$AzFilesHybridPath = 'C:\PS\AzFilesHybrid'
+$AzFilesHybridPath = '<download-path>'
 
 
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
@@ -44,13 +43,11 @@ Connect-AzAccount
 
 Select-AzSubscription -SubscriptionId $SubscriptionId 
 
-#Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
-
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -Name $StorageAccountName `
         -DomainAccountType "ComputerAccount" `
-        -OrganizationalUnitName "$OUpath"
+        -OrganizationalUnitName "$OUname"
 
 $FileShareContributorRole = Get-AzRoleDefinition "Storage File Data SMB Share Elevated Contributor" 
 
