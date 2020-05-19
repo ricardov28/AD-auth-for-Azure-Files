@@ -32,11 +32,21 @@ $AzFilesHybridPath = '<download-path>'
 
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
+Uninstall-Module az.storage
+
+Start-Sleep -s 5
+
+Install-Module -Name Az.Storage -RequiredVersion 1.11.1-preview -AllowPrerelease
+
+Start-Sleep -s 5
+
 cd $AzFilesHybridPath
 
 Unblock-File .\CopyToPSPath.ps1 
 
 Import-Module -Name AzFilesHybrid
+
+Start-Sleep -s 20
 
 Connect-AzAccount
 
